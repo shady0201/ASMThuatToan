@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>ASM thuật toán - Đinh Hoàng Vũ</title>
+</head>
+<body>
+    <div class="search">
+        <input id ="searchBar" class="search-bar" type="text" placeholder="Tìm kiếm" oninput="search()">
+        <select onchange="search()" id="selectSalary">
+            <option value="luongGiam">Lương giảm</option>
+            <option value="luongTang">Lương tăng</option>
+        </select>
+    </div>
+    
+    <div class="table">
+        <div class="header">
+            <div class="header-id">ID</div>
+            <div class="header-name">NAME</div>
+            <div class="header-salary">SALARY</div>
+            <div class="header-action">ACTION</div>
+        </div>
+        <div class="list" id="list">
+            <div class="item">
+                <div class="header-id">123456</div>
+                <div class="header-name">Le Viet Hung Dep Gai</div>
+                <div class="header-salary">156.125.154</div>
+                <div class="header-action">
+                    <img src="/remove.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/data.js"></script>
+    <script src="/help.js"></script>
+    <script src="/function.js"></script>
+</body>
+</html>
