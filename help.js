@@ -16,6 +16,7 @@ function timKiemNhiPhan(data, findValue, minIndex, maxIndex) {
   let midIndex = Math.ceil((minIndex + maxIndex) / 2);
 
   if (findValue == data[midIndex].id) {
+    console.log("SelectionSort : " + data[midIndex].id);
     return midIndex;
   }
 
@@ -27,14 +28,17 @@ function timKiemNhiPhan(data, findValue, minIndex, maxIndex) {
 
   if (maxIndex - minIndex == 1) {
     if (findValue == data[minIndex].id) {
+      console.log("SelectionSort : " + data[midIndex].id);
       return minIndex;
     } else if (findValue == data[maxIndex].id) {
+      console.log("SelectionSort : " + data[maxIndex].id);
       return maxIndex;
     } else {
+      console.log("SelectionSort : not found" );
       return -1;
     }
   }
-
+  showBinary(data.slice(minIndex,maxIndex));
   return timKiemNhiPhan(data, findValue, minIndex, maxIndex);
 }
 
@@ -50,6 +54,7 @@ function bubbleSort(data) {
       if (j + 1 <= len - 1)
         if (data[j].luong < data[j + 1].luong) {
           swap(data, j, j + 1);
+          showBubbleSort(data, j, j + 1);
         }
     }
   }
@@ -68,7 +73,6 @@ function selectionSort(data) {
   let n = data.length;
 
   for (let i = 0; i < n; i++) {
-    // Finding the smallest number in the subarray
     let min = i;
     for (let j = i + 1; j < n; j++) {
       if (data[j].luong < data[min].luong) {
@@ -76,12 +80,41 @@ function selectionSort(data) {
       }
     }
     if (min != i) {
-      // Swapping the elements
       let tmp = data[i];
       data[i] = data[min];
       data[min] = tmp;
+      showSelectionSort(data, i);
     }
   }
   return data;
 }
 
+function showBinary(data){
+  let result = "";
+  for (let i = 0; i < data.length; i++) {
+    result += data[i].id + " "
+  }
+  console.log("SelectionSort : " +result);
+}
+
+function showSelectionSort(data, min) {
+  let result = "";
+  for (let i = 0; i < data.length; i++) {
+    if (i == min) result += "[" + data[i].luong + "] ";
+    else {
+      result += data[i].luong + " ";
+    }
+  }
+  console.log("SelectionSort : " + result);
+}
+
+function showBubbleSort(data, index1, index2) {
+  let result = "";
+  for (let i = 0; i < data.length; i++) {
+    if (i == index1 || i == index2) result += "[" + data[i].luong + "] ";
+    else {
+      result += data[i].luong + " ";
+    }
+  }
+  console.log("BubbleSort : " + result);
+}
