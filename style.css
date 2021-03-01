@@ -15,18 +15,54 @@ body{
 .search{
     width:90vw;
     height: 40px;
+    display: flex;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.search-contain{
+    width: 350px;
+    display: flex;
+    border-radius: 10px;
+    padding: 5px 5px 5px 20px ;
+    background:rgb(221, 219, 221);
+    margin-right: 20px;
+    
+}
+.search-type{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    color: white;
+}
+.select-type{
+    padding: 5px;
+    border-radius: 10px;
+    background:rgb(98, 62, 128);
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    color: white;
+}
+
+.type-name{
+    background:green;
+}
+.type-id{
+    background:brown;
 }
 
 .search input{
     width:250px;
     height:30px;
-    border-radius: 10px;
-    padding: 5px 5px 5px 20px ;
-    background:rgb(221, 219, 221);
     border: none;
     outline: none;
+    background:transparent;
 }
 
 .table{

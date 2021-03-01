@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/ASMThuatToan/style.css">
     
     <title>ASM thuật toán - Đinh Hoàng Vũ</title>
 </head>
 <body>
     <div class="search">
-        <input id ="searchBar" class="search-bar" type="text" placeholder="Tìm kiếm" oninput="search()">
-        <select onchange="search()" id="selectSalary">
+        <div class="search-contain">
+            <input id ="searchBar" class="search-bar" type="text" placeholder="Tìm kiếm" oninput="search()">
+            <div class="search-type type-name" id ="searchType" onclick="clickSearchType(this)" value ="name">Tên</div>
+        </div>
+        
+        <select class="select-type" onchange="search()" id="selectSalary">
             <option value="luongGiam">Lương giảm</option>
             <option value="luongTang">Lương tăng</option>
         </select>
@@ -30,14 +34,14 @@
                 <div class="header-name">Le Viet Hung Dep Gai</div>
                 <div class="header-salary">156.125.154</div>
                 <div class="header-action">
-                    <img src="/remove.png">
+                    <img src="/ASMThuatToan/remove.png">
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="/data.js"></script>
-    <script src="/help.js"></script>
-    <script src="/function.js"></script>
+    <script src="/ASMThuatToan/data.js"></script>
+    <script src="/ASMThuatToan/help.js"></script>
+    <script src="/ASMThuatToan/function.js"></script>
 </body>
 </html>

@@ -12,7 +12,31 @@ function restoreData() {
 }
 
 // tìm kiếm nhị phân
-function timKiemNhiPhan() {}
+function timKiemNhiPhan(data, findValue, minIndex, maxIndex) {
+  let midIndex = Math.ceil((minIndex + maxIndex) / 2);
+
+  if (findValue == data[midIndex].id) {
+    return midIndex;
+  }
+
+  if (findValue < data[midIndex].id) {
+    maxIndex = midIndex;
+  } else {
+    minIndex = midIndex;
+  }
+
+  if (maxIndex - minIndex == 1) {
+    if (findValue == data[minIndex].id) {
+      return minIndex;
+    } else if (findValue == data[maxIndex].id) {
+      return maxIndex;
+    } else {
+      return -1;
+    }
+  }
+
+  return timKiemNhiPhan(data, findValue, minIndex, maxIndex);
+}
 
 // sắp xếp nổi bọt
 function bubbleSort(data) {
@@ -60,3 +84,4 @@ function selectionSort(data) {
   }
   return data;
 }
+

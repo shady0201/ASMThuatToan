@@ -6,18 +6,27 @@ showLocalData();
 
 // tìm kiếm lần đầu khi load trang
 search();
+
+
 // tìm kiếm
 function search() {
   let searchBar = document.getElementById("searchBar");
   let select = document.getElementById("selectSalary");
+  let type = document.getElementById("searchType");
+
   let result = [];
 
   let searchString = searchBar.value;
   let sortType = select.value === "luongTang" ? 0 : 1;
+  let searchType = type.getAttribute("value");
 
   // xử lý search bar
   if (searchString.length > 0 || searchString.trim().length > 0) {
-    result = findItemByName(searchString);
+    if(searchType == "name")
+      result = findItemByName(searchString);
+    else
+      result.push(findItemById(searchString));
+
   } else {
     result = getLocalAsObject(keyData);
   }
@@ -44,6 +53,29 @@ function findItemByName(name) {
     }
   }
   return result;
+}
+
+// lấy kết quả tìm kiếm bằng id
+function findItemById(id){
+  let data = getLocalAsObject(keyData);
+  
+  let index = timKiemNhiPhan(data,id,0,data.length -1);
+
+  return data[index];
+}
+
+// click đổi loại tìm kiếm
+function clickSearchType(button){
+  let value = button.getAttribute("value");
+  value =  value == "name" ? "id" : "name";
+  
+  button.className = value == "name"? "search-type type-name" : "search-type type-id";
+
+  button.classList.toggle("run");
+  button.classList.toggle("run");
+
+  button.setAttribute("value",value);
+  button.innerHTML = value == "name" ? "Tên" : "Id";
 }
 
 function setLocalData() {
@@ -92,7 +124,7 @@ function makeItemDOM(item, even) {
 
   let removeDOM = document.createElement("img");
   removeDOM.className = "remove-icon";
-  removeDOM.src = "/remove.png";
+  removeDOM.src = "/ASMThuatToan/remove.png";
   removeDOM.addEventListener("click", () => removeItem(item.id));
 
   actionDOM.append(removeDOM);
