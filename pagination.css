@@ -1,0 +1,68 @@
+#pagi{
+    display: flex;
+    align-items: center;
+}
+
+.b-page{
+
+    width:40px;
+    height:40px;
+
+    border-radius: 5px;
+    border: 1px solid transparent;
+
+    color: #5E396D;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+
+    cursor: pointer;
+    transition: 100ms ease-in;
+    margin-right: 2px;
+}
+.dot{
+    width:25px;
+    height:40px;
+    border-radius: 5px;
+    color: #5E396D;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: 100ms ease-in;
+    margin-right: 2px;
+    border: 1px solid transparent;
+}
+
+.b-dir{
+    width: 70px;
+    height: 39px;
+    cursor: pointer;
+    
+    text-align: center;
+    line-height: 39px;
+    transition: 100ms ease-in;
+}
+.b-next{
+    margin-left: 5px;
+    border-radius: 0 40px 40px 0 ;
+}
+.b-pre{
+    margin-right: 5px;
+    border-radius: 40px 0 0 40px ;
+}
+
+.b-act{
+    color:white;
+    background:#5E396D;
+    pointer-events: none;
+}
+
+/*Effect*/
+.b-page:hover, .b-dir:hover{
+    color: white;
+    background:#995db1;
+    border-color: #995db1;
+}
+.dot:hover{
+    border-color: #995db1;
+}

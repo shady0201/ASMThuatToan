@@ -1,3 +1,4 @@
+
 // load data nếu chưa có trong local
 setLocalData();
 
@@ -8,14 +9,13 @@ showLocalData();
 search();
 
 
-// tìm kiếm
+// tìm kiếm tổng : lương , tên, pagination
 function search() {
   let searchBar = document.getElementById("searchBar");
   let select = document.getElementById("selectSalary");
   let type = document.getElementById("searchType");
 
-  let result = [];
-
+  let searchResult = [];
   let searchString = searchBar.value;
   let sortType = select.value === "luongTang" ? 0 : 1;
   let searchType = type.getAttribute("value");
@@ -23,25 +23,28 @@ function search() {
   // xử lý search bar
   if (searchString.length > 0 || searchString.trim().length > 0) {
     if(searchType == "name")
-      result = findItemByName(searchString);
+      searchResult = findItemByName(searchString);
     else
-      result.push(findItemById(searchString));
+      searchResult.push(findItemById(searchString));
 
   } else {
-    result = getLocalAsObject(keyData);
+      searchResult = getLocalAsObject(keyData);
   }
 
   // sort kết quả theo lương
   if (sortType === 0) {
     // lương tăng dần
-    result = selectionSort(result);
+    recurSelectionSort(searchResult,searchResult.length);
   } else {
     // lương giảm dần
-    result = bubbleSort(result);
+    bubbleSort(searchResult,searchResult.length);
   }
 
-  loadDataToDOM(result);
+  // lấy thông tin chia trang
+  setupPagination(searchResult);
+
 }
+
 
 // lấy kết quả tìm kiếm bằng tên
 function findItemByName(name) {
